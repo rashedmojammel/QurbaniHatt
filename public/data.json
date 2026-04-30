@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Deshi Shahi Cow",
+    "type": "Cow",
+    "breed": "Local Deshi",
+    "price": 120000,
+    "weight": 280,
+    "age": 3,
+    "location": "Bogura",
+    "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural খাবার.",
+    "image": "https://i.postimg.cc/4xqkYB1p/cow1.jpg",
+    "category": "Large Animal"
+  },
+  {
+    "id": 2,
+    "name": "Australian Friesian Bull",
+    "type": "Cow",
+    "breed": "Friesian",
+    "price": 250000,
+    "weight": 450,
+    "age": 4,
+    "location": "Dhaka",
+    "description": "Imported Friesian bull with excellent health and বড় সাইজ.",
+    "image": "https://i.postimg.cc/0Qw7Q0kM/cow2.jpg",
+    "category": "Large Animal"
+  },
+  {
+    "id": 3,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 18000,
+    "weight": 35,
+    "age": 2,
+    "location": "Rajshahi",
+    "description": "Famous Black Bengal goat, perfect for Qurbani. High meat quality.",
+    "image": "https://i.postimg.cc/Zn0hJr4n/goat1.jpg",
+    "category": "Small Animal"
+  },
+  {
+    "id": 4,
+    "name": "Jamunapari Goat",
+    "type": "Goat",
+    "breed": "Jamunapari",
+    "price": 30000,
+    "weight": 50,
+    "age": 2.5,
+    "location": "Khulna",
+    "description": "Large size Jamunapari goat with সুন্দর গঠন and healthy শরীর.",
+    "image": "https://i.postimg.cc/9QwPp7Qm/goat2.jpg",
+    "category": "Small Animal"
+  },
+  {
+    "id": 5,
+    "name": "Deshi Sheep",
+    "type": "Sheep",
+    "breed": "Local",
+    "price": 22000,
+    "weight": 40,
+    "age": 2,
+    "location": "Sylhet",
+    "description": "Healthy sheep with ভালো মাংস quality. Suitable for small families.",
+    "image": "https://i.postimg.cc/Vk9KjX5m/sheep1.jpg",
+    "category": "Medium Animal"
+  },
+  {
+    "id": 6,
+    "name": "Red Chittagong Cow",
+    "type": "Cow",
+    "breed": "Red Chittagong",
+    "price": 180000,
+    "weight": 350,
+    "age": 3.5,
+    "location": "Chattogram",
+    "description": "Pure Red Chittagong breed, strong and healthy for Qurbani.",
+    "image": "https://i.postimg.cc/7L2Kf3bY/cow3.jpg",
+    "category": "Large Animal"
+  }
+]
