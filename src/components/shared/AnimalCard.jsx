@@ -16,7 +16,7 @@ const AnimalCard = ({ animal }) => {
           ৳ {animal.price}
         </p>
 
-        <Link href={`/animal/${animal.id}`}>
+        <Link href={`/animals/${animal.id}`}>
           <button className="mt-3 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
             View Details
           </button>
