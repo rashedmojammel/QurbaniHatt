@@ -1,6 +1,4 @@
 // lib/data.js
-import { readFile } from 'fs/promises';
-import path from 'path';
 
 export async function getAllAnimals() {
      const res = await fetch(

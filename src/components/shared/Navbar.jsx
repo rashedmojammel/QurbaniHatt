@@ -5,15 +5,19 @@ import React from "react";
 import userAvatar from "@/app/assets/user.png";
 import NavLink from "./Navlink";
 import { authClient } from "@/lib/auth-client";
+import { FaBackward } from "react-icons/fa";
 
 const Navbar = () => {
 
   const { data: session , isPending } =  authClient.useSession()
   const user = session?.user;
   console.log(user,"user");
+
+
   return (
     <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        
         
         {/* Logo */}
         <div className="text-2xl font-bold text-purple-600">
@@ -35,6 +39,7 @@ const Navbar = () => {
           isPending ? ("Loading......") : user ? (
             <div className="flex items-center gap-4">
               <h1>Hello, {user.name}</h1>
+          <Link href="/Profile">
           <Image
             src={user?.image || userAvatar}
             alt="User avatar"
@@ -43,6 +48,8 @@ const Navbar = () => {
             className="rounded-full border"
           />
 
+          </Link>
+          
           <Link href="/">
             <button className="px-4 py-1.5 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition" onClick={ async () =>await authClient.signOut()}>
               Logout

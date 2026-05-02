@@ -1,8 +1,16 @@
+// 'use client'
 import React from 'react';
 import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
+import { redirect } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
+// import { redirect } from 'next/dist/server/api-utils';
 
 const Page = async () => {
+    //  const { data: session , isPending } =  authClient.useSession()
+    //   const user = session?.user;
+    //   console.log(user,"user");
+
     const animals = await getAllAnimals();
 
     const categoryColor = {
@@ -10,6 +18,10 @@ const Page = async () => {
         'Medium Animal': 'badge-warning',
         'Small Animal': 'badge-success',
     };
+
+    if(!user){
+        redirect('/login');
+    }
 
     return (
         <div className="container mx-auto px-4 py-8">
