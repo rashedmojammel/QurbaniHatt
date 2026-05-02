@@ -6,7 +6,6 @@ import React from 'react';
 const layout = ({children}) => {
     return (
         <>
-        <Header></Header>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
