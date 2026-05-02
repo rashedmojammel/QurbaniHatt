@@ -1,9 +1,12 @@
 'use client';
 
+// import { getAllAnimals } from '@/lib/data';
+import Link from 'next/link';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 export default function SimpleForm() {
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -33,8 +36,10 @@ export default function SimpleForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6">
-      <h2 className="text-xl font-bold mb-4">Simple Booking Form</h2>
+    <div className="max-w-md mx-auto p-6 border border-2 rounded-xl mt-30">
+       <Link href="/Allanimals" className="btn btn-primary">Back to All Animals</Link>
+      <h2 className="text-xl font-bold mb-4">Booking Form</h2>
+     
 
       <form onSubmit={handleSubmit} className="space-y-3">
         <input name="name" value={form.name} onChange={handleChange} placeholder="Name" required className="input input-bordered w-full" />

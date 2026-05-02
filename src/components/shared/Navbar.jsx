@@ -1,4 +1,4 @@
-"Use client"
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,7 +8,7 @@ import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
 
-  const { data: session } =  authClient.getSession()
+  const { data: session , isPending } =  authClient.useSession()
   const user = session?.user;
   console.log(user,"user");
   return (
@@ -31,22 +31,36 @@ const Navbar = () => {
           
         </ul>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-4">
+        {
+          isPending ? ("Loading......") : user ? (
+            <div className="flex items-center gap-4">
           <Image
-            src={user.image || userAvatar}
+            src={user?.image || userAvatar}
             alt="User avatar"
             width={40}
             height={40}
             className="rounded-full border"
           />
 
-          <Link href="/login">
+          <Link href="/">
+            <button className="px-4 py-1.5 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition" onClick={ async () =>await authClient.signOut()}>
+              Logout
+            </button>
+          </Link>
+        </div>
+
+          ) :(
+           <Link href="/login">
             <button className="px-4 py-1.5 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition">
               Login
             </button>
           </Link>
-        </div>
+
+          )
+        }
+
+      
+        
 
       </div>
     </nav>
