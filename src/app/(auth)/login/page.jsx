@@ -4,8 +4,10 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { BsGoogle } from "react-icons/bs";
 // import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const {
@@ -30,14 +32,21 @@ const LoginPage = () => {
     console.log(res, error);
 
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
     
 
     if (res) {
-      alert("Signin successful");
+      toast.success("Signin successful");
     }
+
   };
+  const hanndleGoogleSignIn = async() => {
+    await authClient.signIn.social ({
+      provider : 'google'
+    }
+    )
+  }
 
   return (
     <div className="container mx-auto min-h-[100vh] flex justify-center items-center bg-slate-100">
@@ -90,7 +99,13 @@ const LoginPage = () => {
             Register
           </Link>
         </p>
+        <p className=" text-center">Or</p>
+        <button onClick={hanndleGoogleSignIn}type="button" className="w-full border border-slate-300 rounded-lg py-2 flex items-center justify-center gap-2 text-slate-700 hover:bg-slate-100">
+          <BsGoogle />
+          <span>Sign in with Google</span>
+        </button>
       </div>
+      
     </div>
   );
 };

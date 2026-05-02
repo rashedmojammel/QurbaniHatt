@@ -34,6 +34,7 @@ const Navbar = () => {
         {
           isPending ? ("Loading......") : user ? (
             <div className="flex items-center gap-4">
+              <h1>Hello, {user.name}</h1>
           <Image
             src={user?.image || userAvatar}
             alt="User avatar"
