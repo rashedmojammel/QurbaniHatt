@@ -19,9 +19,9 @@ const Page = async () => {
         'Small Animal': 'badge-success',
     };
 
-    if(!user){
-        redirect('/login');
-    }
+    // if(!user){
+    //     redirect('/login');
+    // }
 
     return (
         <div className="container mx-auto px-4 py-8">
