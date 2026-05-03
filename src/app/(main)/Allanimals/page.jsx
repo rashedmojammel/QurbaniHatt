@@ -12,6 +12,9 @@ const Page = async () => {
     //   console.log(user,"user");
 
     const animals = await getAllAnimals();
+    if(!animals){
+        return <div>NO animals found</div>
+    }
 
     const categoryColor = {
         'Large Animal': 'badge-error',
