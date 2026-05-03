@@ -7,10 +7,6 @@ import { authClient } from '@/lib/auth-client';
 // import { redirect } from 'next/dist/server/api-utils';
 
 const AllanimalPage = async () => {
-    //  const { data: session , isPending } =  authClient.useSession()
-    //   const user = session?.user;
-    //   console.log(user,"user");
-
     const animals = await getAllAnimals();
     if(!animals){
         return <div>NO animals found</div>

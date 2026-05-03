@@ -5,13 +5,11 @@ import React from "react";
 import userAvatar from "@/app/assets/user.png";
 import NavLink from "./Navlink";
 import { authClient } from "@/lib/auth-client";
-import { FaBackward } from "react-icons/fa";
 
 const Navbar = () => {
 
   const { data: session , isPending } =  authClient.useSession()
   const user = session?.user;
-  console.log(user,"user");
 
 
   return (
