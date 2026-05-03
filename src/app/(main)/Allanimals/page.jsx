@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
 // import { redirect } from 'next/dist/server/api-utils';
 
-const Page = async () => {
+const AllanimalPage = async () => {
     //  const { data: session , isPending } =  authClient.useSession()
     //   const user = session?.user;
     //   console.log(user,"user");
@@ -71,4 +71,4 @@ const Page = async () => {
     );
 };
 
-export default Page;
+export default AllanimalPage;
