@@ -61,20 +61,20 @@ const AnimalDetailsPage = async ({ params }) => {
 
                     <div className="grid grid-cols-2 gap-3">
                         <div className="stat bg-base-200 rounded-xl p-3">
-                            <div className="stat-title text-xs">Age</div>
-                            <div className="stat-value text-lg">{animal.age} yrs</div>
+                            <div className="text-xs">Age</div>
+                            <div className="text-lg">{animal.age} yrs</div>
                         </div>
                         <div className="stat bg-base-200 rounded-xl p-3">
-                            <div className="stat-title text-xs">Weight</div>
-                            <div className="stat-value text-lg">{animal.weight} kg</div>
+                            <div className=" text-xs">Weight</div>
+                            <div className=" text-lg">{animal.weight} kg</div>
                         </div>
                         <div className="stat bg-base-200 rounded-xl p-3">
-                            <div className="stat-title text-xs">Type</div>
-                            <div className="stat-value text-lg">{animal.type}</div>
+                            <div className=" text-xs">Type</div>
+                            <div className=" text-lg">{animal.type}</div>
                         </div>
                         <div className="stat bg-base-200 rounded-xl p-3">
-                            <div className="stat-title text-xs">Location</div>
-                            <div className="stat-value text-lg">{animal.location}</div>
+                            <div className=" text-xs">Location</div>
+                            <div className=" text-lg">{animal.location}</div>
                         </div>
                     </div>
 
