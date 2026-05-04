@@ -39,13 +39,13 @@ const SortControls = () => {
                 </li>
                 <li>
                     <button onClick={() => handleSort('desc')}>
-                        <FaArrowUp></FaArrowUp> High to Low
+                        <FaArrowUp /> High to Low
                     </button>
                 </li>
                 {current && (
                     <li>
                         <button onClick={() => handleSort('')}>
-                               <MdCancel /> Clear
+                            <MdCancel /> Clear
                         </button>
                     </li>
                 )}

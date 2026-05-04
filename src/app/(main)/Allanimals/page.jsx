@@ -1,73 +1,108 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
 import SortControls from '@/components/shared/SortControl';
-// import SortControls from '@/components/shared/SortControls';
+import { FaLocationArrow } from 'react-icons/fa';
 
 const AllanimalPage = async ({ searchParams }) => {
-    const { sort } = await searchParams;
-    const animals = await getAllAnimals();
+  const params = await searchParams; // Next.js 15 requires await
+const sort = params?.sort;
 
-    if (!animals) return <div>No animals found</div>;
+  const animals = await getAllAnimals();
 
-    const sorted = [...animals].sort((a, b) => {
-        if (sort === 'asc') return a.price - b.price;
-        if (sort === 'desc') return b.price - a.price;
-        return 0;
-    });
+  if (!animals) return <div className="text-center py-10">No animals found</div>;
 
-    const categoryColor = {
-        'Large Animal': 'badge-error',
-        'Medium Animal': 'badge-warning',
-        'Small Animal': 'badge-success',
-    };
+  const sorted = [...animals].sort((a, b) => {
+    if (sort === 'asc') return a.price - b.price;
+    if (sort === 'desc') return b.price - a.price;
+    return 0;
+  });
 
-    return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="flex items-center justify-between mb-8">
-                <h1 className="text-3xl font-bold">All Animals</h1>
-                <SortControls current={sort} />
-            </div>
+  const categoryColor = {
+    'Large Animal': 'badge-error',
+    'Medium Animal': 'badge-warning',
+    'Small Animal': 'badge-success',
+  };
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sorted.map((animal) => (
-                    <div key={animal.id} className="card bg-base-100 w-96 shadow-sm">
-                        <figure>
-                            <img
-                                src={animal.image}
-                                alt={animal.name}
-                                className="w-full h-48 object-cover"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <div className="flex justify-between items-start">
-                                <h2 className="card-title">{animal.name}</h2>
-                                <span className={`badge ${categoryColor[animal.category] || 'badge-neutral'}`}>
-                                    {animal.category}
-                                </span>
-                            </div>
-                            <p className="text-sm text-gray-500">{animal.breed} - {animal.type}</p>
-                            <p className="text-sm"><span className="font-semibold">Location:</span> {animal.location}</p>
-                            <p className="text-sm"><span className="font-semibold">Age:</span> {animal.age} years</p>
-                            <p className="text-sm"><span className="font-semibold">Weight:</span> {animal.weight} kg</p>
-                            <p className="text-xl font-bold text-primary">৳{animal.price.toLocaleString()}</p>
-                            <div className="card-actions justify-end">
-                                <Link href={`/animals/${animal.id}`}>
-                                    <button className="btn btn-primary">View Details</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {sorted.length === 0 && (
-                <div className="text-center py-10">
-                    <p className="text-gray-500">No animals found</p>
-                </div>
-            )}
+  return (
+    
+    <div className="max-w-7xl mx-auto px-4 py-10">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+        <div>
+          <h1 className="text-4xl font-extrabold tracking-tight">All Animals</h1>
+          <p className="text-gray-500 mt-1">Find the perfect animal for you</p>
+           {/* <Suspense fallback={<div className="btn">Sort by Price</div>}>
+                    <SortControls />
+                </Suspense> */}
         </div>
-    );
+        <SortControls current={sort} />
+      </div>
+
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {sorted.map((animal) => (
+          <div
+            key={animal.id}
+            className="group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-base-100 hover:-translate-y-1"
+          >
+            {/* Image */}
+            <div className="relative overflow-hidden">
+              <img
+                src={animal.image}
+                alt={animal.name}
+                className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+
+              {/* Category Badge */}
+              <span
+                className={`badge absolute top-3 right-3 ${categoryColor[animal.category] || 'badge-neutral'}`}
+              >
+                {animal.category}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="p-5 space-y-3">
+              <h2 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                {animal.name}
+              </h2>
+
+              <p className="text-sm text-gray-500">
+                {animal.breed} • {animal.type}
+              </p>
+
+              {/* Info */}
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><FaLocationArrow></FaLocationArrow> {animal.location}</p>
+                <p>🎂 {animal.age} yrs • ⚖️ {animal.weight} kg</p>
+              </div>
+
+              
+              <div className="flex items-center justify-between pt-2">
+                <span className="text-xl font-bold text-primary">
+                  ৳{animal.price.toLocaleString()}
+                </span>
+
+                <Link href={`/animals/${animal.id}`}>
+                  <button className="btn btn-sm btn-primary rounded-full px-4">
+                    View →
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {sorted.length === 0 && (
+        <div className="text-center py-16">
+          <h2 className="text-xl font-semibold">No animals found</h2>
+          <p className="text-gray-500">Try changing sort options</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default AllanimalPage;

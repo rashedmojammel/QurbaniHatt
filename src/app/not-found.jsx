@@ -17,13 +17,6 @@ const Notfound = () => {
         The page you are looking for doesn’t exist or has been moved.
       </p>
 
-      {/* Image */}
-      <img
-        src="https://i.ibb.co/2kR7z4M/404-error.png"
-        alt="Not Found"
-        className="w-72 mb-6"
-      />
-
       {/* Button */}
       <Link href="/">
         <button className="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition">

@@ -5,35 +5,47 @@ import qurbanihat from "@/app/assets/Qurbanihat.png";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[80vh] flex items-center justify-center">
-      
+    <div className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+
       {/* Background Image */}
       <Image
         src={qurbanihat}
         alt="Qurbani Hat"
         fill
         priority
-        className="object-cover"
+        className="object-cover scale-105"
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 animate__animated animate__bounce">
-          Find Your Perfect Qurbani Animal 🐄
+      <div className="relative z-10 text-center text-white px-4 max-w-2xl">
+        
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+          Find Your Perfect <br />
+          <span className="text-green-400">Qurbani Animal 🐄</span>
         </h1>
 
-        <p className="mb-6 text-lg">
-          Fresh, verified & ready for Qurbani
+        <p className="mb-8 text-lg md:text-xl text-gray-200">
+         verified & ready for your Qurbani. সহজে খুঁজুন, নিশ্চিতভাবে কিনুন।
         </p>
 
-        <Link href="/Allanimals">
-          <button className="px-6 py-3 bg-green-500 rounded-lg hover:bg-green-600 transition">
-            Browse Animals
-          </button>
-        </Link>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <Link href="/Allanimals">
+            <button className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+              Browse Animals →
+            </button>
+          </Link>
+
+          <Link href="/about">
+            <button className="px-8 py-3 border border-white/70 hover:bg-white hover:text-black rounded-full transition-all duration-300">
+              Learn More
+            </button>
+          </Link>
+
+        </div>
+
       </div>
     </div>
   );
