@@ -75,7 +75,7 @@ const sort = params?.sort;
               {/* Info */}
               <div className="text-sm text-gray-600 space-y-1">
                 <p><FaLocationArrow></FaLocationArrow> {animal.location}</p>
-                <p>🎂 {animal.age} yrs • ⚖️ {animal.weight} kg</p>
+                <p>Age : {animal.age} yrs • Weight : {animal.weight} kg</p>
               </div>
 
               
