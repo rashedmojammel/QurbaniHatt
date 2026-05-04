@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
+import { FaBookBookmark } from 'react-icons/fa6';
+import { FaPhone } from 'react-icons/fa';
 
 const AnimalDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -82,8 +84,8 @@ const AnimalDetailsPage = async ({ params }) => {
                     </div>
 
                     <div className="card-actions mt-2 flex gap-3 flex-wrap">
-                        <Link href={`/bookform?id=${animal.id}`} className='btn btn-outline flex-1'>🛒 Book Now</Link>
-                        <button className="btn btn-outline flex-1">📞 Contact Seller</button>
+                        <Link href={`/bookform?id=${animal.id}`} className='btn btn-outline flex-1'><FaBookBookmark></FaBookBookmark>Book Now</Link>
+                        <button className="btn btn-outline flex-1"><FaPhone></FaPhone> Contact Seller</button>
                     </div>
                 </div>
             </div>
