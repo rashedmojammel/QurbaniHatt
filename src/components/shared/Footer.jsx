@@ -24,7 +24,7 @@ const Footer = () => {
             Contact Us
           </h3>
           <p className="text-sm">📍 Dhaka, Bangladesh</p>
-          <p className="text-sm">📞 +880 1234-567890</p>
+          <p className="text-sm">📞 +8801890642735</p>
           <p className="text-sm">✉️ support@qurbanihat.com</p>
         </div>
 
