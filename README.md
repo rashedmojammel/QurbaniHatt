@@ -1,6 +1,6 @@
 # 🐄 QurbaniHat
 
-## 📌 Purpose
+##  Purpose
 **QurbaniHat** is a full-stack livestock booking web application built for the **Eid-ul-Adha** season.  
 It allows users to browse verified cattle and animals, view detailed profiles, and place bookings online — eliminating the need to physically visit a hat (market).
 
@@ -8,23 +8,26 @@ The platform includes authentication, protected routes, and a smooth booking exp
 
 ---
 
-## 🌐 Live URL
+##  Live URL
 🔗 https://qurbani-hatt.vercel.app
 
 ---
 
-## 🚀 Key Features
+##  Homepage 
 
-### 🐄 Animal Listings
-- Browse all available animals in a responsive grid
-- Category badges (Large / Medium / Small)
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/049e834f-84b9-4737-a76c-8abdf2759d3f" />
+<img width="1919" height="716" alt="image" src="https://github.com/user-attachments/assets/38af58c6-bd5a-43f0-975b-b05a8498ae0d" />
+<img width="1914" height="530" alt="image" src="https://github.com/user-attachments/assets/0acd196a-a211-4c23-b5e0-ccca99f386bc" />
+<img width="1919" height="853" alt="image" src="https://github.com/user-attachments/assets/86052066-d250-4433-9d00-1e1d12584716" />
 
-### 🔽 Price Sorting
-- Sort animals by:
-  - Low → High
-  - High → Low
-- Uses URL search params
+##  AllAnimal page 
+<img width="1919" height="837" alt="image" src="https://github.com/user-attachments/assets/989aa95a-8e86-4486-9d5a-7f8be2f91775" />
+##  Details Page
 
+<img width="1918" height="795" alt="image" src="https://github.com/user-attachments/assets/eef89564-69c8-4add-a775-9003583d9916" />
+
+
+##  Key Features
 ### 📄 Animal Details Page
 - Full information:
   - Breed
@@ -44,12 +47,12 @@ The platform includes authentication, protected routes, and a smooth booking exp
     - Mobile Banking
     - Card
 
-### 🔐 User Authentication
+### User Authentication
 - Email & password login/signup
 - Google OAuth login
 - Session management using Better Auth
 
-### 🔒 Protected Routes
+###  Protected Routes
 - Redirects unauthenticated users from:
   - `/Allanimals`
   - `/animals/:id`
@@ -65,29 +68,29 @@ The platform includes authentication, protected routes, and a smooth booking exp
 - Active link highlighting
 - Logout functionality
 
-### ⭐ Featured Animals
+###  Featured Animals
 - Homepage section
 - Displays top 4 animals
 - Staggered animation effects
 
-### 🏆 Top Breeds
+###  Top Breeds
 - Highlights highest-priced animals
 
-### 📚 Qurbani Tips
+###  Qurbani Tips
 - Informational section for livestock selection
 
-### 🔔 Toast Notifications
+###  Toast Notifications
 - Success & error feedback for:
   - Authentication
   - Form submissions
 
-### ❌ 404 Page
+###  404 Page
 - Custom not-found page
 - Redirect button to homepage
 
 ---
 
-## 📦 NPM Packages Used
+##  NPM Packages Used
 
 | Package | Purpose |
 |--------|--------|
@@ -107,9 +110,9 @@ The platform includes authentication, protected routes, and a smooth booking exp
 
 ---
 
-## ⚙️ Getting Started
+##  Getting Started
 
-### 1️⃣ Clone & Install
+###  Clone & Install
 
 ```bash
 git clone https://github.com/your-username/qurbanihat.git
