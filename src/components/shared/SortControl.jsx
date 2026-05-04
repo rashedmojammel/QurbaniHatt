@@ -1,39 +1,55 @@
 'use client';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
+import { MdCancel } from 'react-icons/md';
 
-const SortControls = ({ current }) => {
+const SortControls = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const current = searchParams.get('sort');
 
     const handleSort = (value) => {
-        const params = new URLSearchParams();
-        if (value) params.set('sort', value);
+        const params = new URLSearchParams(searchParams.toString());
+
+        if (value) {
+            params.set('sort', value);
+        } else {
+            params.delete('sort');
+        }
+
         router.push(`${pathname}?${params.toString()}`);
     };
 
     return (
-        <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-500">Sort by price:</span>
-            <button
-                onClick={() => handleSort('asc')}
-                className={`btn btn-sm ${current === 'asc' ? 'btn-primary' : 'btn-outline'}`}
+        <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn m-1">
+                Sort by Price {current === 'asc' ? '↑' : current === 'desc' ? '↓' : ''}
+            </div>
+
+            <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow"
             >
-                ↑ Low to High
-            </button>
-            <button
-                onClick={() => handleSort('desc')}
-                className={`btn btn-sm ${current === 'desc' ? 'btn-primary' : 'btn-outline'}`}
-            >
-                ↓ High to Low
-            </button>
-            {current && (
-                <button
-                    onClick={() => handleSort('')}
-                    className="btn btn-sm btn-ghost text-gray-400"
-                >
-                    ✕
-                </button>
-            )}
+                <li>
+                    <button onClick={() => handleSort('asc')}>
+                        <FaArrowDown /> Low to High
+                    </button>
+                </li>
+                <li>
+                    <button onClick={() => handleSort('desc')}>
+                        <FaArrowUp></FaArrowUp> High to Low
+                    </button>
+                </li>
+                {current && (
+                    <li>
+                        <button onClick={() => handleSort('')}>
+                               <MdCancel /> Clear
+                        </button>
+                    </li>
+                )}
+            </ul>
         </div>
     );
 };
