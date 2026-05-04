@@ -6,7 +6,7 @@ import { FaLocationArrow } from 'react-icons/fa';
 import { FaLocationPin } from 'react-icons/fa6';
 
 const AllanimalPage = async ({ searchParams }) => {
-  const params = await searchParams; // Next.js 15 requires await
+  const params = await searchParams; 
 const sort = params?.sort;
 
   const animals = await getAllAnimals();
@@ -28,7 +28,6 @@ const sort = params?.sort;
   return (
     
     <div className="max-w-7xl mx-auto px-4 py-10">
-      {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight">All Animals</h1>
@@ -47,7 +46,7 @@ const sort = params?.sort;
             key={animal.id}
             className="group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-base-100 hover:-translate-y-1"
           >
-            {/* Image */}
+           
             <div className="relative overflow-hidden">
               <img
                 src={animal.image}
@@ -55,7 +54,7 @@ const sort = params?.sort;
                 className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
-              {/* Category Badge */}
+            
               <span
                 className={`badge absolute top-3 right-3 ${categoryColor[animal.category] || 'badge-neutral'}`}
               >
@@ -63,7 +62,7 @@ const sort = params?.sort;
               </span>
             </div>
 
-            {/* Content */}
+          
             <div className="p-5 space-y-3">
               <h2 className="text-lg font-semibold group-hover:text-primary transition-colors">
                 {animal.name}
@@ -73,7 +72,7 @@ const sort = params?.sort;
                 {animal.breed} • {animal.type}
               </p>
 
-              {/* Info */}
+             
               <div className="text-sm text-gray-600 space-y-1">
                 <p><span><FaLocationPin></FaLocationPin>{animal.location}</span> </p>
                 <p>Age : {animal.age} yrs • Weight : {animal.weight} kg</p>
@@ -99,7 +98,6 @@ const sort = params?.sort;
       {sorted.length === 0 && (
         <div className="text-center py-16">
           <h2 className="text-xl font-semibold">No animals found</h2>
-          <p className="text-gray-500">Try changing sort options</p>
         </div>
       )}
     </div>
