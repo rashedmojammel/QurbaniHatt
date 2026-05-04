@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
         
-        <Link href="/" className="text-3xl font-bold text-purple-600 tracking-tight">
+        <Link href="/" className="text-3xl font-bold text-purple-600 tracking-tight animate__animated animate__rubberBand animate__repeat-2 ">
           Qurbani<span className="text-3xl font-bold text-green-500">Hat</span>
         </Link>
 
