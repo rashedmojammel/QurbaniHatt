@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
-import SortControls from '@/components/shared/SortControls';
+import SortControls from '@/components/shared/SortControl';
+// import SortControls from '@/components/shared/SortControls';
 
 const AllanimalPage = async ({ searchParams }) => {
     const { sort } = await searchParams;
