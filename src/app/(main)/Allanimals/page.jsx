@@ -1,16 +1,19 @@
-// 'use client'
 import React from 'react';
 import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
-import { redirect } from 'next/navigation';
-import { authClient } from '@/lib/auth-client';
-// import { redirect } from 'next/dist/server/api-utils';
+import SortControls from '@/components/shared/SortControls';
 
-const AllanimalPage = async () => {
+const AllanimalPage = async ({ searchParams }) => {
+    const { sort } = await searchParams;
     const animals = await getAllAnimals();
-    if(!animals){
-        return <div>NO animals found</div>
-    }
+
+    if (!animals) return <div>No animals found</div>;
+
+    const sorted = [...animals].sort((a, b) => {
+        if (sort === 'asc') return a.price - b.price;
+        if (sort === 'desc') return b.price - a.price;
+        return 0;
+    });
 
     const categoryColor = {
         'Large Animal': 'badge-error',
@@ -18,16 +21,15 @@ const AllanimalPage = async () => {
         'Small Animal': 'badge-success',
     };
 
-    // if(!user){
-    //     redirect('/login');
-    // }
-
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-8">All Animals</h1>
+            <div className="flex items-center justify-between mb-8">
+                <h1 className="text-3xl font-bold">All Animals</h1>
+                <SortControls current={sort} />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {animals.map((animal) => (
+                {sorted.map((animal) => (
                     <div key={animal.id} className="card bg-base-100 w-96 shadow-sm">
                         <figure>
                             <img
@@ -58,7 +60,7 @@ const AllanimalPage = async () => {
                 ))}
             </div>
 
-            {animals.length === 0 && (
+            {sorted.length === 0 && (
                 <div className="text-center py-10">
                     <p className="text-gray-500">No animals found</p>
                 </div>
