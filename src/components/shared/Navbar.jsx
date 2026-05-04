@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import userAvatar from "@/app/assets/user.png";
 import NavLink from "./Navlink";
 import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+  const router = useRouter();
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
@@ -63,7 +65,10 @@ const Navbar = () => {
 
               {/* Logout */}
               <button
-                onClick={async () => await authClient.signOut()}
+                onClick={async () => {
+                  await authClient.signOut();
+                  router.push("/");
+                }}
                 className="hidden sm:block px-4 py-1.5 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition"
               >
                 Logout
@@ -97,7 +102,10 @@ const Navbar = () => {
 
           {user && (
             <button
-              onClick={async () => await authClient.signOut()}
+              onClick={async () => {
+                await authClient.signOut();
+                router.push("/");
+              }}
               className="w-full text-left text-red-500"
             >
               Logout
