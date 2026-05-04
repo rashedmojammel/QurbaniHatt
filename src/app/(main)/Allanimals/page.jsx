@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getAllAnimals } from '@/lib/data';
 import SortControls from '@/components/shared/SortControl';
 import { FaLocationArrow } from 'react-icons/fa';
+import { FaLocationPin } from 'react-icons/fa6';
 
 const AllanimalPage = async ({ searchParams }) => {
   const params = await searchParams; // Next.js 15 requires await
@@ -74,7 +75,7 @@ const sort = params?.sort;
 
               {/* Info */}
               <div className="text-sm text-gray-600 space-y-1">
-                <p><FaLocationArrow></FaLocationArrow> {animal.location}</p>
+                <p><span><FaLocationPin></FaLocationPin>{animal.location}</span> </p>
                 <p>Age : {animal.age} yrs • Weight : {animal.weight} kg</p>
               </div>
 
