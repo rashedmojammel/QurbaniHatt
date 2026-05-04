@@ -20,13 +20,12 @@ const FeaturedAnimals = () => {
   return (
     <div className="py-12 px-4">
       
-      {/* Title */}
       <h2 className="text-3xl font-bold text-center mb-8 
       animate__animated animate__fadeInUp">
         Featured Animals
       </h2>
 
-      {/* Loading */}
+      
       {loading ? (
         <div className="flex flex-col items-center justify-center gap-4 py-10 
         animate__animated animate__fadeIn">
