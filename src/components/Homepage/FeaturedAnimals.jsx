@@ -1,15 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
 import AnimalCard from "../shared/AnimalCard";
+import { Spinner } from "@heroui/react";
 // s
 
 const FeaturedAnimals = () => {
   const [animals, setAnimals] = useState([]);
+  const [loading,setLoading] = useState([]);
 
   useEffect(() => {
     fetch("/data.json")
       .then(res => res.json())
-      .then(data => setAnimals(data.slice(0, 4)));
+      .then(data => {
+        setAnimals(data.slice(0, 4));
+        setLoading(false);
+
+      });
+      
   }, []);
 
   return (
@@ -18,11 +25,17 @@ const FeaturedAnimals = () => {
         Featured Animals
       </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {animals.map(animal => (
-          <AnimalCard key={animal.id} animal={animal} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="flex items-center gap-4 justify-center">
+      <Spinner size="xl"/>
+    </div>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {animals.map((animal) => (
+            <AnimalCard key={animal.id} animal={animal} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { FaFire } from 'react-icons/fa';
 const TopBreeds = async () => {
   const animals = await getAllAnimals();
 
+
   const topAnimals = [...animals]
     .sort((a, b) => b.price - a.price)
     .slice(0, 4);
@@ -21,15 +22,13 @@ const TopBreeds = async () => {
             key={animal.id}
             className="group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white"
           >
-            {/* Image */}
+            
             <div className="relative overflow-hidden">
               <img
                 src={animal.image}
                 alt={animal.name}
                 className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-
-              {/* Price Badge */}
               <span className="absolute top-3 left-3 bg-green-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow">
                 ৳{animal.price.toLocaleString()}
               </span>
