@@ -98,7 +98,11 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden px-6 pb-4 space-y-4 bg-white border-t">
           <NavLink href="/">Home</NavLink>
-          <NavLink href="/Allanimals">All Animals</NavLink>
+          <div>
+             <NavLink href="/Allanimals">All Animals</NavLink>
+
+          </div>
+         
 
           {user && (
             <button
