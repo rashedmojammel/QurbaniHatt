@@ -1,11 +1,11 @@
+import { Spinner } from "@heroui/react";
 import React from "react";
 
 const LoadingPage = () => {
   return (
-    <div className="flex h-[85vh] items-center justify-center">
-      Global loading
-      <span className="loading loading-dots loading-xl"></span>
-    </div>
+    <div className="flex flex-col items-center gap-2">
+        <Spinner size="xl" />
+      </div>
   );
 };
 
