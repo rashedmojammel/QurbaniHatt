@@ -13,15 +13,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-gray-200 bg-slate-900">
+    <nav className="w-full bg-gray-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
-        {/* Logo */}
+        
         <Link href="/" className="text-3xl font-bold text-purple-600 tracking-tight">
           Qurbani<span className="text-3xl font-bold text-green-500">Hat</span>
         </Link>
 
-        {/* Desktop Menu */}
+        
         <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
           <li>
             <NavLink href="/">Home</NavLink>
@@ -34,17 +34,17 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Right Section */}
+    
         <div className="flex items-center gap-4">
 
-          {/* Loading */}
+          
           {isPending && <span className="text-sm text-gray-500">Loading...</span>}
 
           {/* Logged In */}
           {!isPending && user && (
             <div className="flex items-center gap-3">
 
-              {/* User Info */}
+              
               <div className="hidden sm:flex flex-col text-right">
                 <span className="text-sm font-medium">Hello,</span>
                 <span className="text-xs text-gray-500">{user.name}</span>
@@ -71,7 +71,7 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Not Logged In */}
+         
           {!isPending && !user && (
             <Link href="/login">
               <button className="px-5 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition shadow">
@@ -80,7 +80,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* Mobile Menu Button */}
+        
           <button
             className="md:hidden text-2xl"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -90,9 +90,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden px-6 pb-4 space-y-3 bg-white border-t">
+        <div className="md:hidden px-6 pb-4 space-y-4 bg-white border-t">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/Allanimals">All Animals</NavLink>
 
