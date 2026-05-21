@@ -70,7 +70,7 @@ The platform includes authentication, protected routes, and a smooth booking exp
 
 ###  Featured Animals
 - Homepage section
-- Displays top 4 animals
+- Displays top 4 animals.
 - Staggered animation effects
 
 ###  Top Breeds
