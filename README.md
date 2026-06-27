@@ -108,9 +108,6 @@ The platform includes authentication, protected routes, and a smooth booking exp
 | daisyui | Tailwind UI components |
 | animate.css | Animations |
 
----
-
-##  Getting Started
 
 ###  Clone & Install
 
