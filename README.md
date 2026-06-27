@@ -28,7 +28,7 @@ The platform includes authentication, protected routes, and a smooth booking exp
 
 
 ##  Key Features
-### 📄 Animal Details Page
+### 📄 Animal Details Page :
 - Full information:
   - Breed
   - Age
