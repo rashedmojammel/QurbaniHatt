@@ -4,7 +4,7 @@
 **QurbaniHat** is a full-stack livestock booking web application built for the **Eid-ul-Adha** season.  
 It allows users to browse verified cattle and animals, view detailed profiles, and place bookings online — eliminating the need to physically visit a hat (market).
 
-The platform includes authentication, protected routes, and a smooth booking experience with payment method selection
+The platform includes authentication, protected routes, and a smooth booking experience with payment method selection!!
 
 ---
 
